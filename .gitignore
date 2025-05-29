@@ -10,7 +10,7 @@ classes/
 FFDC/
 
 # Package Files #
-*/*.jar
+*.jar
 !gradle-wrapper.jar
 *.war
 *.ear
