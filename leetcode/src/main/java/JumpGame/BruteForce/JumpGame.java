@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class JumpGame {
     public static void main(String[] args) {
-        int[] nums = {3, 2, 2, 0, 4};
+        int[] nums = {3, 2, 1, 1, 4};
         System.out.println(new Solution().canJump(nums));
     }
 
@@ -17,23 +17,25 @@ public class JumpGame {
 
         public boolean canJump(int[] nums) {
             List<Integer> result = new ArrayList<>();
-           boolean a=  visit(0, nums, result);
-            return false;
+            return visit(0, nums);
         }
 
-        public boolean visit(int index, int[] nums, List<Integer> result) {
-            result.add(index);
+        public boolean visit(int index, int[] nums) {
+            System.out.println("Visit " + index + "--------");
             if (index == nums.length - 1) {
                 return true;
             }
 
-            int step = nums[index];
-            for (int i = 1; i <= step; i++) {
+            int maxLengthCanJump = nums[index];
+            System.out.println("--- maxLengthCanJump " + maxLengthCanJump + "--------");
+            for (int i = 1; i <= maxLengthCanJump; i++) {
                 if (index + i < nums.length) {
-                    return visit(index + i, nums, result);
+                    System.out.println("-----Jump " + i + "--------");
+                    if (visit(index + i, nums)) {
+                        return true;
+                    }
                 }
             }
-            result.remove(result.size() - 1);
             return false;
         }
     }

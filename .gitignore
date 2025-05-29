@@ -1,0 +1,49 @@
+*.log
+*.log.*.0
+*.log.*.1
+mqjms.log*
+*.class
+*.orig
+*.lock
+target/
+classes/
+FFDC/
+
+# Package Files #
+*/*.jar
+!gradle-wrapper.jar
+*.war
+*.ear
+*.hprof
+
+.gradle/
+build/
+out/
+/conf/
+
+# IDE Project files #
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# nodejs #
+node_modules/
+npm-debug.log
+/bin/
+
+# WAS Liberty files #
+wlp/
+.classpath
+.project
+.settings
+
+# ignore log files
+/[0-9]*
+
+# wsdl generated sources
+generatedSources/
+
+# performance testing results
+results/
+.DS_Store
