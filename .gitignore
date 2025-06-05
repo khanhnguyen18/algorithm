@@ -17,6 +17,7 @@ FFDC/
 *.hprof
 
 .gradle/
+gradle/
 build/
 out/
 /conf/
