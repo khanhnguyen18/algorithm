@@ -29,3 +29,46 @@
 - Use BFS
 - Write current position + length
 - Know when call back
+
+## DFS AWS Q
+
+I've refactored the code with the following improvements:
+[CaveDFSAwsQ.java](../../java/cave/CaveDFSAwsQ.java)
+1. **Removed unnecessary dependencies**:
+
+   - Eliminated the java.awt.* import and replaced Point with direct row/column parameters
+
+2. **Optimized visited cell tracking**:
+   - Replaced string-based keys with integer encoding for positions, which is more efficient
+   - Added an encodePosition method to convert row/col to a single integer
+3. **Simplified the context structure**
+
+   - Replaced SolutionContext with a simpler Result class that only tracks what's needed
+
+   - Removed the redundant found flag since we can check if maxLength is -1
+
+4. **Improved method naming and parameters:**
+
+   - Renamed search to dfs to better reflect its purpose
+   - Changed x/y coordinates to row/col for better readability
+   - Renamed isInbound to isValid and combined the empty cell check
+
+5. **Optimized conditionals:**
+   - Combined boundary and empty cell checks into a single isValid method
+   - Used Math.max for cleaner maximum length tracking
+
+These changes make the code more efficient, easier to read, and maintain the same functionality while reducing the overall complexity.
+
+
+Yes, there's an opportunity to improve the Result class and how we handle the result value. Here are a few improvements we could make:
+
+1. We could use an AtomicInteger instead of a custom class for thread safety (though not necessary in this case)
+
+2. We could use a primitive int[] array of length 1 for a more lightweight solution
+
+3. We could use a more descriptive name for the result variable
+
+4. We could initialize the result with a more appropriate default value
+
+**Solution**: The simplest and most efficient improvement would be to use an int[] array instead of a custom class. This avoids creating an extra class while still allowing us to modify the value from within the recursive method.
+
